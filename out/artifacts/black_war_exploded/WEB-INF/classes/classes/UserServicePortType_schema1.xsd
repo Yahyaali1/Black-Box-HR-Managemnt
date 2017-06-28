@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://classes/" xmlns:tns="http://classes/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="SQLException" type="tns:SQLException"/>
+
+  <xs:element name="addnewuser" type="tns:addnewuser"/>
+
+  <xs:element name="addnewuserResponse" type="tns:addnewuserResponse"/>
+
+  <xs:element name="adduser_admin" type="tns:adduser_admin"/>
+
+  <xs:element name="adduser_adminResponse" type="tns:adduser_adminResponse"/>
+
+  <xs:element name="authenticate_user" type="tns:authenticate_user"/>
+
+  <xs:element name="authenticate_userResponse" type="tns:authenticate_userResponse"/>
+
+  <xs:element name="authenticate_userid" type="tns:authenticate_userid"/>
+
+  <xs:element name="authenticate_useridResponse" type="tns:authenticate_useridResponse"/>
+
+  <xs:element name="emailval" type="tns:emailval"/>
+
+  <xs:element name="emailvalResponse" type="tns:emailvalResponse"/>
+
+  <xs:element name="getallsme" type="tns:getallsme"/>
+
+  <xs:element name="getallsmeResponse" type="tns:getallsmeResponse"/>
+
+  <xs:element name="getnormaluserbyid" type="tns:getnormaluserbyid"/>
+
+  <xs:element name="getnormaluserbyidResponse" type="tns:getnormaluserbyidResponse"/>
+
+  <xs:element name="getuserbyid" type="tns:getuserbyid"/>
+
+  <xs:element name="getuserbyidResponse" type="tns:getuserbyidResponse"/>
+
+  <xs:element name="insertcv" type="tns:insertcv"/>
+
+  <xs:element name="insertcvResponse" type="tns:insertcvResponse"/>
+
+  <xs:element name="removeuser_admin" type="tns:removeuser_admin"/>
+
+  <xs:element name="removeuser_adminResponse" type="tns:removeuser_adminResponse"/>
+
+  <xs:element name="updateuserpassword" type="tns:updateuserpassword"/>
+
+  <xs:element name="updateuserpasswordResponse" type="tns:updateuserpasswordResponse"/>
+
+  <xs:element name="userhascv" type="tns:userhascv"/>
+
+  <xs:element name="userhascvResponse" type="tns:userhascvResponse"/>
+
+  <xs:element name="userlist_admin" type="tns:userlist_admin"/>
+
+  <xs:element name="userlist_adminResponse" type="tns:userlist_adminResponse"/>
+
+  <xs:complexType name="authenticate_user">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticate_userResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SQLException">
+    <xs:sequence>
+      <xs:element name="SQLState" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorCode" type="xs:int"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="nextException" type="tns:sqlException" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sqlException">
+    <xs:complexContent>
+      <xs:extension base="tns:exception">
+        <xs:sequence>
+          <xs:element name="nextException" type="tns:sqlException" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="exception">
+    <xs:complexContent>
+      <xs:extension base="tns:throwable">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="throwable">
+    <xs:sequence>
+      <xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stackTraceElement" final="extension restriction">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="userlist_admin">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="userlist_adminResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element name="gender" type="xs:boolean"/>
+      <xs:element name="userEmail" type="xs:string" minOccurs="0"/>
+      <xs:element name="userId" type="xs:int"/>
+      <xs:element name="userPassword" type="xs:string" minOccurs="0"/>
+      <xs:element name="userType" type="xs:int"/>
+      <xs:element name="fName" type="xs:string" minOccurs="0"/>
+      <xs:element name="lName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addnewuser">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:normalUser" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="normalUser">
+    <xs:complexContent>
+      <xs:extension base="tns:user">
+        <xs:sequence>
+          <xs:element name="descrp" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="skill1" type="xs:string" minOccurs="0"/>
+          <xs:element name="skill2" type="xs:string" minOccurs="0"/>
+          <xs:element name="year1" type="xs:int"/>
+          <xs:element name="year2" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="addnewuserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertcv">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertcvResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getallsme">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getallsmeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticate_userid">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticate_useridResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="emailval">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="emailvalResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateuserpassword">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateuserpasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getnormaluserbyid">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getnormaluserbyidResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:normalUser" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getuserbyid">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getuserbyidResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:user" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adduser_admin">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adduser_adminResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="userhascv">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="userhascvResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeuser_admin">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeuser_adminResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+

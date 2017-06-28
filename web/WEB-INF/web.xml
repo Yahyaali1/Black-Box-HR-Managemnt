@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <description>JAX-WS endpoint</description>
+        <display-name>WSServlet</display-name>
+        <servlet-name>WSServlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>WSServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+    <security-role><role-name>Hr</role-name></security-role>
+    <security-role><role-name>Hrm</role-name></security-role>
+    <security-role><role-name>Srm</role-name></security-role>
+    <security-role><role-name>App</role-name></security-role>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Hr Resources</web-resource-name>
+            <url-pattern>/dohrfrom</url-pattern>
+            <url-pattern>/dohrjoblist</url-pattern>
+            <url-pattern>/dohrjoblist</url-pattern>
+            <url-pattern>/DashBoardMain.jsp</url-pattern>
+            <url-pattern>/DashBoardMainJobList.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Hr</role-name>
+        </auth-constraint>
+
+
+    </security-constraint>
+    <!--> Ali2<-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>SME</web-resource-name>
+            <url-pattern>/dosmeform</url-pattern>
+            <url-pattern>/DashBoardMain_SME.jsp</url-pattern>
+            <url-pattern>/DashBoardMain_SME_Mark.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Srm</role-name>
+        </auth-constraint>
+        <!--> Ali2<-->
+
+
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>HRM</web-resource-name>
+            <url-pattern>/dohrmform</url-pattern>
+            <url-pattern>/DashBoardMain_HRM_Mark.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Hrm</role-name>
+        </auth-constraint>
+        <!--> Ali3<-->
+
+
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>APP</web-resource-name>
+            <url-pattern>/doappform</url-pattern>
+            <url-pattern>/DashBoardMain_Applicant.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>App</role-name>
+        </auth-constraint>
+        <!--> Ali4<-->
+
+
+    </security-constraint>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <context-param>
+        <param-name>dbclass</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            C:\Users\IBM\IdeaProjects\black\web\cvfiles\
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>tempfile.dir</param-name>
+        <param-value>tmpfiles</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>web.ContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>HrForm</servlet-name>
+        <servlet-class>web.HrForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AppFrom</servlet-name>
+        <servlet-class>web.AppForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmeForm</servlet-name>
+        <servlet-class>web.SmeForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HrmForm</servlet-name>
+        <servlet-class>web.HrmForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>web.Admin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HrJobList</servlet-name>
+        <servlet-class>web.HrJobList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HrPostJob</servlet-name>
+        <servlet-class>web.HrPostJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logOut</servlet-name>
+        <servlet-class>web.logOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loginPage</servlet-name>
+        <servlet-class>web.loginPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Uploadfile</servlet-name>
+        <servlet-class>web.Uploadfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>emailval</servlet-name>
+        <servlet-class>web.emailval</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>emailval</servlet-name>
+        <url-pattern>/doemailval</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Uploadfile</servlet-name>
+        <url-pattern>/doupload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginPage</servlet-name>
+        <url-pattern>/dologin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logOut</servlet-name>
+        <url-pattern>/dologout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HrPostJob</servlet-name>
+        <url-pattern>/dohrpostjob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HrJobList</servlet-name>
+        <url-pattern>/dohrjoblist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/doadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HrmForm</servlet-name>
+        <url-pattern>/dohrmform</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmeForm</servlet-name>
+        <url-pattern>/dosmeform</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AppFrom</servlet-name>
+        <url-pattern>/doappform</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HrForm</servlet-name>
+        <url-pattern>/dohrfrom</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
+
+    <endpoint name="UserService"
+              implementation="classes.user_service"
+              url-pattern="/services/user_service">
+
+    </endpoint>
+
+    <endpoint name="Hello" implementation="classes.helloworld" url-pattern="/services/hello">
+
+    </endpoint>
+</endpoints>

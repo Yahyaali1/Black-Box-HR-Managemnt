@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="blackbox@DESKTOP-U1PLQCK" uuid="76410827-0daf-4b87-a390-9db6c885acb9">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://DESKTOP-U1PLQCK:1434;databaseName=blackbox</jdbc-url>
+    </data-source>
+  </component>
+</project>
