@@ -4,7 +4,7 @@ Human resource management system deals with all issues concerning employees in a
 2-HR Personnel
 3-Applicant
 4-SME (Subject Matter Expert)
-Following are the steps of work flow required:
+# Functionalities 
 1. HR personnel advertises the job on the company web site.
 2. Applicants submit CV\resumes on the web site.
 3. HR personnel receive and review the applications.
@@ -15,18 +15,18 @@ Following are the steps of work flow required:
 8. After getting the feedback from the SME top five candidates resume are sent to the HR Manager.
 9. Emails for interviews are again sent by the system which the HR Manager can set. The HR manager conducts the second round of interviews and gives feed back in the HR system feedback forms.
 10. Letter of offer is sent to the selected (best candidate after HR Manager interview). Rejection letters are sent to the rest of the applicants.
-Website layout and design
-• Basic website layout and design (including forms) using HTML, JS and CSS.
-• This includes design of all the pages required for the application.
-• Each role should have its own views\profile pages and actions they can perform.
-Back end programming
-• All the Functionality should be working for the HR recruiting system as defined the in section 3.
-• All back end coding, model, and dependencies should be working.
-• Client side and server side validation should be implemented.
-• Security features should be implemented. (This includes Roles, XSS, and SQL injection)
-Web Service
-• Design a web service which can be used to:
+# Website layout and design
+â€¢ Basic website layout and design (including forms) using HTML, JS and CSS.
+â€¢ This includes design of all the pages required for the application.
+â€¢ Each role should have its own views\profile pages and actions they can perform.
+# Back end programming
+â€¢ All the Functionality should be working for the HR recruiting system as defined the in section 3.
+â€¢ All back end coding, model, and dependencies should be working.
+â€¢ Client side and server side validation should be implemented.
+â€¢ Security features should be implemented. (This includes Roles, XSS, and SQL injection)
+# Web Service
+â€¢ Design a web service which can be used to:
 o Get applicant details searching by name this service should also give Application id.
 o Get application status by searching on Application id.
 o The data should be returned in either JSON or XML.
-• Implement at least one user interface component using AJAX.
+â€¢ Implement at least one user interface component using AJAX.
